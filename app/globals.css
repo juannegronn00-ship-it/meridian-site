@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #F5F3EE;
+  --fg: #0D0D0D;
+  --fg2: #4A4845;
+  --fg3: #3A3835;
+  --border: rgba(13, 13, 13, 0.15);
+  --card-bg: #EDEAE3;
+  --card-hover: #E4E0D8;
+  --accent: #C4703A;
+  --font-serif: var(--font-instrument-serif);
+  --font-sans: var(--font-dm-sans);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+strong,
+b {
+  color: var(--fg);
+  font-weight: 500;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-inner {
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
+}
+
+/* Scroll indicator */
+@keyframes scrollLine {
+  0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+  50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+  51%  { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+.scroll-line {
+  display: block;
+  width: 1px;
+  height: 60px;
+  background: var(--fg2);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* Hero CTA button fill-from-bottom hover */
+#hero-cta {
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s;
+}
+
+#hero-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--fg);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+#hero-cta:hover::before {
+  transform: scaleY(1);
+}
+
+#hero-cta:hover {
+  color: var(--bg);
+}
