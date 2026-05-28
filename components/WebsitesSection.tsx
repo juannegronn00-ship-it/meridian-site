@@ -54,6 +54,73 @@ const CARDS: CardData[] = [
   },
 ]
 
+const PORTFOLIO: { num: string; title: string; description: string; tag: string }[] = [
+  { num: '01', title: 'Avilon', description: 'Creator monetization platform for fitness micro-creators.', tag: 'Next.js · Supabase · Vercel' },
+  { num: '02', title: 'Meridian', description: "You're looking at it.", tag: 'Next.js · Framer Motion · Vercel' },
+  { num: '03', title: 'Ballet Borderless', description: 'Dance organization website.', tag: 'Next.js · Vercel' },
+]
+
+function PortfolioCard({ num, title, description, tag }: typeof PORTFOLIO[number]) {
+  return (
+    <div
+      style={{
+        background: 'var(--card-bg)',
+        padding: '2.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '1rem',
+        minHeight: '260px',
+      }}
+    >
+      <div
+        style={{
+          fontFamily: 'var(--font-serif)',
+          fontSize: '0.85rem',
+          color: 'var(--accent)',
+        }}
+      >
+        {num}
+      </div>
+      <h3
+        style={{
+          fontFamily: 'var(--font-serif)',
+          fontSize: 'clamp(1.3rem, 2vw, 1.7rem)',
+          fontWeight: 400,
+          color: 'var(--fg)',
+          lineHeight: 1.15,
+        }}
+      >
+        {title}
+      </h3>
+      <p
+        style={{
+          fontSize: '0.83rem',
+          color: 'var(--fg2)',
+          lineHeight: 1.75,
+        }}
+      >
+        {description}
+      </p>
+      <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
+        <span
+          style={{
+            display: 'inline-block',
+            border: '1px solid var(--border)',
+            padding: '0.35rem 0.85rem',
+            borderRadius: '999px',
+            fontSize: '0.68rem',
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: 'var(--fg2)',
+          }}
+        >
+          {tag}
+        </span>
+      </div>
+    </div>
+  )
+}
+
 function FeatureCard({ icon, title, body }: CardData) {
   const [hovered, setHovered] = useState(false)
 
@@ -173,6 +240,13 @@ export default function WebsitesSection() {
           <RevealOnScroll key={card.title} delay={i * 0.1}>
             <FeatureCard {...card} />
           </RevealOnScroll>
+        ))}
+      </div>
+
+      {/* Portfolio grid */}
+      <div className="websites-cards-grid" style={{ marginTop: '2px' }}>
+        {PORTFOLIO.map((card) => (
+          <PortfolioCard key={card.title} {...card} />
         ))}
       </div>
 
