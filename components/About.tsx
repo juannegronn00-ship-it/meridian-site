@@ -96,7 +96,7 @@ export default function About() {
           <p style={{ fontSize: '0.95rem', color: 'var(--fg2)', lineHeight: 1.85 }}>
             Meridian is an AI automation studio based in{' '}
             <strong>San Juan, Puerto Rico</strong>. We build intelligent systems
-            that run in production — bots, agents, and pipelines for clients who
+            that run in production: bots, agents, and pipelines for clients who
             need precision, not buzzwords.
           </p>
           <p style={{ fontSize: '0.95rem', color: 'var(--fg2)', lineHeight: 1.85 }}>
@@ -109,12 +109,12 @@ export default function About() {
           <p style={{ fontSize: '0.95rem', color: 'var(--fg2)', lineHeight: 1.85 }}>
             We work at the intersection of{' '}
             <strong>AI inference, financial data, and automation infrastructure</strong>
-            . Every system we build is production-grade — hosted, monitored, and
+            . Every system we build is production-grade, hosted, monitored, and
             maintained.
           </p>
           <p style={{ fontSize: '0.95rem', color: 'var(--fg2)', lineHeight: 1.85 }}>
             If you have a problem that repeats itself every day and you&apos;re
-            solving it manually — we can probably automate it better than you
+            solving it manually. We can probably automate it better than you
             think is possible.
           </p>
         </div>

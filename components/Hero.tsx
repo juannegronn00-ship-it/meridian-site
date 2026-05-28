@@ -63,7 +63,7 @@ export default function Hero() {
               fontWeight: 400,
             }}
           >
-            AI Automation Studio — Est. 2026
+            AI Automation Studio, Est. 2026
           </span>
         </motion.div>
 

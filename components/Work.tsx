@@ -16,7 +16,7 @@ const CARDS = [
     num: '02',
     title: 'Grip',
     description:
-      'Personal finance and goal-coaching Telegram bot. Log transactions in plain language, track income across clients, get automated insights — always on, always listening.',
+      'Personal finance Telegram bot. Log transactions in plain language, track income across clients, get automated insights. Always on, always listening.',
     tag: 'Finance · Automation',
     href: '/work/grip',
   },
@@ -82,7 +82,7 @@ export default function Work() {
           <ProjectCard
             num="Next"
             title="Your problem, our next system."
-            description="If you have a process that repeats daily and you're solving it manually — we can automate it better than you think is possible."
+            description="If you have a process that repeats daily and you're solving it manually, we can automate it better than you think is possible."
             tag="Get in touch →"
             href="#contact"
             isCta

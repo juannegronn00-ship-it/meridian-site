@@ -20,7 +20,7 @@ export const projects = {
       },
       {
         heading: 'The problem',
-        body: 'Day-ahead electricity prices in PJM markets are highly sensitive to natural gas prices, weather, and load patterns. Manually monitoring these signals every morning before the market clears is time-consuming and error-prone. The client needed an automated system that surfaced the right signals at the right time — reliably, every day.',
+        body: 'Day-ahead electricity prices in PJM markets are highly sensitive to natural gas prices, weather, and load patterns. Manually monitoring these signals every morning before the market clears is time-consuming and error-prone. The client needed an automated system that surfaced the right signals at the right time, reliably, every day.',
       },
       {
         heading: 'How it works',
@@ -35,7 +35,7 @@ export const projects = {
   grip: {
     num: '02',
     title: 'Grip',
-    tags: ['Finance', 'Automation', 'Telegram', 'Goal Coaching'],
+    tags: ['Finance', 'Automation', 'Telegram'],
     stack: [
       'Python',
       'Claude AI (Anthropic)',
@@ -47,19 +47,19 @@ export const projects = {
     sections: [
       {
         heading: null,
-        body: 'Grip is a personal finance and goal-coaching Telegram bot built to remove friction from tracking money and staying accountable to goals. Instead of opening an app or filling a spreadsheet, you just message it like a person.',
+        body: 'Grip is a personal finance Telegram bot built to remove friction from tracking money. Instead of opening an app or filling a spreadsheet, you just message it like a person.',
       },
       {
         heading: 'The problem',
-        body: 'Most finance trackers require deliberate data entry — categories, amounts, dates. That friction means people stop using them within days. Goals suffer the same fate: written once, forgotten fast. Grip was built around the idea that logging should feel like texting.',
+        body: 'Most finance trackers require deliberate data entry: categories, amounts, dates. That friction means people stop using them within days. Grip was built around the idea that logging should feel like texting.',
       },
       {
         heading: 'How it works',
-        body: 'Grip uses Claude AI to parse natural language transaction logs — messages like "Jason paid me $250 for the bot this week" get automatically classified, attributed to the right business and client, and stored in Supabase. The bot tracks income across multiple revenue streams and clients simultaneously. On the goal side, Grip runs proactive check-ins, sends daily task reminders, and rebuilds weekly schedules through adaptive Sunday conversations.',
+        body: 'Grip uses Claude AI to parse natural language transaction logs. Messages like "Jason paid me $250 for the bot this week" get automatically classified, attributed to the right business and client, and stored in Supabase. The bot tracks income across multiple revenue streams and clients simultaneously.',
       },
       {
         heading: 'Features',
-        body: 'Natural-language transaction logging · Multi-business income tracking · Client attribution · Goal-based weekly schedule generation · Daily task briefings · Pre/post session bookends · 30-day goal check-ups · Full history in Supabase. Runs 24/7 on Railway — always listening, no commands to remember.',
+        body: 'Natural-language transaction logging · Multi-business income tracking · Client attribution · Full history in Supabase. Runs 24/7 on Railway, always listening, no commands to remember.',
       },
     ],
   },

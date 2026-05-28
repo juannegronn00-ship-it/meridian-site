@@ -20,7 +20,7 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Meridian — AI Automation Studio',
+  title: 'Meridian, AI Automation Studio',
   description:
     'Meridian builds AI-powered bots and automation systems for finance professionals and businesses who need real solutions, not demos.',
 }

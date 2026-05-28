@@ -14,7 +14,7 @@ export function generateMetadata({ params }: PageProps) {
   const project = projects[params.slug as ProjectSlug]
   if (!project) return {}
   return {
-    title: `${project.title} — Meridian`,
+    title: `${project.title}, Meridian`,
     description: project.sections[0]?.body ?? '',
   }
 }
