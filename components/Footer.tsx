@@ -1,3 +1,5 @@
+import { LocationTag } from './ui/location-tag'
+
 export default function Footer() {
   return (
     <footer
@@ -18,6 +20,7 @@ export default function Footer() {
       >
         Meridian
       </span>
+      <LocationTag city="San Juan" country="PR" timezone="AST" />
       <span
         style={{
           fontFamily: 'var(--font-sans)',
@@ -29,5 +32,6 @@ export default function Footer() {
         © 2026 · San Juan, Puerto Rico
       </span>
     </footer>
+
   )
 }

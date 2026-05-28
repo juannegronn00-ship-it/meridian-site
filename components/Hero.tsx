@@ -1,12 +1,11 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { GetStartedButton } from '@/components/ui/get-started-button'
+import { SplineScene } from '@/components/ui/splite'
 
 export default function Hero() {
-  const { scrollY } = useScroll()
-  const ghostY = useTransform(scrollY, [0, 600], [0, -80])
-
-  function handleWorkClick(e: React.MouseEvent<HTMLAnchorElement>) {
+  function handleWorkClick(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
     document.querySelector('#work')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -15,44 +14,24 @@ export default function Hero() {
     <section
       style={{
         position: 'relative',
-        minHeight: '100svh',
+        minHeight: '85vh',
         display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        padding: '0 3rem 5rem',
+        flexDirection: 'row',
         overflow: 'hidden',
       }}
     >
-      {/* Ghost background text — outer div handles centering, motion.div handles parallax */}
+      {/* Left column — existing content, untouched */}
       <div
-        aria-hidden="true"
         style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          pointerEvents: 'none',
-          zIndex: 0,
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-start',
+          padding: '7rem 3rem 5rem',
+          position: 'relative',
+          zIndex: 1,
         }}
       >
-        <motion.div
-          style={{
-            y: ghostY,
-            fontFamily: 'var(--font-serif)',
-            fontSize: '17vw',
-            lineHeight: 1,
-            color: 'transparent',
-            WebkitTextStroke: '1px rgba(13,13,13,0.06)',
-            whiteSpace: 'nowrap',
-            userSelect: 'none',
-          }}
-        >
-          Meridian
-        </motion.div>
-      </div>
-
-      {/* Content */}
-      <div style={{ position: 'relative', zIndex: 1 }}>
         {/* Tagline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -107,7 +86,24 @@ export default function Hero() {
             built for the
           </em>
           <br />
-          real world.
+          <span style={{ position: 'relative', display: 'inline-block' }}>
+            real world.
+            <svg
+              width="100%"
+              height="12"
+              viewBox="0 0 300 12"
+              preserveAspectRatio="none"
+              style={{ position: 'absolute', bottom: '-6px', left: 0 }}
+            >
+              <path
+                d="M 0,6 Q 75,0 150,6 Q 225,12 300,6"
+                stroke="var(--accent)"
+                strokeWidth="4"
+                fill="none"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
         </motion.h1>
 
         {/* Bottom row */}
@@ -119,6 +115,7 @@ export default function Hero() {
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'flex-end',
+            marginTop: 'auto',
           }}
         >
           <p
@@ -133,65 +130,23 @@ export default function Hero() {
             professionals and businesses who need real solutions, not demos.
           </p>
 
-          <HeroCta onClick={handleWorkClick} />
+          <GetStartedButton label="View Work" onClick={handleWorkClick} />
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Right column — Spline scene */}
       <div
         style={{
-          position: 'absolute',
-          bottom: '2.5rem',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '0.75rem',
+          flex: 1,
+          position: 'relative',
+          overflow: 'visible',
         }}
-        aria-hidden="true"
       >
-        <span className="scroll-line" />
-        <span
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontSize: '0.65rem',
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
-            color: 'var(--fg2)',
-            writingMode: 'vertical-rl',
-          }}
-        >
-          Scroll
-        </span>
+        <SplineScene
+          scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+          className="w-full h-full"
+        />
       </div>
     </section>
-  )
-}
-
-function HeroCta({
-  onClick,
-}: {
-  onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void
-}) {
-  return (
-    <a
-      href="#work"
-      onClick={onClick}
-      id="hero-cta"
-      style={{
-        display: 'inline-block',
-        border: '1px solid var(--fg)',
-        padding: '0.85rem 1.75rem',
-        fontFamily: 'var(--font-sans)',
-        fontSize: '0.75rem',
-        letterSpacing: '0.1em',
-        textTransform: 'uppercase',
-        color: 'var(--fg)',
-        textDecoration: 'none',
-      }}
-    >
-      <span style={{ position: 'relative', zIndex: 1 }}>View work →</span>
-    </a>
   )
 }

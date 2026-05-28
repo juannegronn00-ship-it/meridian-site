@@ -13,6 +13,14 @@
   --accent: #C4703A;
   --font-serif: var(--font-instrument-serif);
   --font-sans: var(--font-dm-sans);
+
+  /* Tailwind opacity-modifier compatible RGB channels (matched to design tokens above) */
+  --tw-foreground: 13 13 13;           /* = --fg #0D0D0D */
+  --tw-border: 13 13 13;               /* = --fg #0D0D0D (matches --border rgba logic) */
+  --tw-secondary: 237 234 227;         /* = --card-bg #EDEAE3 */
+  --tw-muted-foreground: 74 72 69;     /* = --fg2 #4A4845 */
+  --tw-primary: 13 13 13;              /* = --fg #0D0D0D — dark button background */
+  --tw-primary-foreground: 245 243 238;/* = --bg #F5F3EE — light text on dark button */
 }
 
 *,
@@ -70,6 +78,54 @@ b {
   height: 60px;
   background: var(--fg2);
   animation: scrollLine 2s ease-in-out infinite;
+}
+
+/* Websites section — responsive cards grid */
+.websites-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+@media (max-width: 768px) {
+  .websites-cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Websites section CTA button — fill-from-bottom hover (matches hero-cta) */
+.websites-cta-btn {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--fg);
+  border: 1px solid var(--fg);
+  padding: 0.6rem 1.4rem;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s;
+}
+
+.websites-cta-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--fg);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.websites-cta-btn:hover::before {
+  transform: scaleY(1);
+}
+
+.websites-cta-btn:hover {
+  color: var(--bg);
 }
 
 /* Hero CTA button fill-from-bottom hover */
